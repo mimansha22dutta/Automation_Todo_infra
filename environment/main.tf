@@ -4,6 +4,14 @@ module "rg" {
   rg_location = "West Europe"
 }
 
+# second resource group for testing purposes
+module "rg2" {
+  source = "../modules/azurerm_resource_group"
+  rg_name     = "mim-resource-group22"
+  rg_location = "Central India"
+}
+
+
 module "vnet" {
     depends_on = [module.rg]
     source = "../modules/azurerm_virtual_network"
